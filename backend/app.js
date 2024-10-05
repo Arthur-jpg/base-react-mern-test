@@ -8,10 +8,15 @@ var cors = require("cors");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error")
 
+
+// import routes
+const authRoutes = require("./routes/authRoutes")
+
 // connection to the database
 mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
+    // estava dando erro aí tirei, pq teoricamente não será usado nas versões mais novas do node
 })
 .then(() => console.log("DB connected"))
 .catch((err) => console.log(err));
@@ -31,6 +36,20 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 //Fazer requests para o backend
 app.use(cors());
+
+//ROUTES midleware
+
+// app.get('/', (req, res) => {
+//     res.send("Hello from node js");
+
+// })
+
+/*
+routes são usadas para as páginas do programa, nesse caso, quando se usa a route padrão + /api vai direto para a página de auth
+
+*/
+app.use('/api', authRoutes)
+
 
 //error middleware
 app.use(errorHandler);
