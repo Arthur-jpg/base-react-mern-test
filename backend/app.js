@@ -11,6 +11,7 @@ const errorHandler = require("./middleware/error")
 
 // import routes
 const authRoutes = require("./routes/authRoutes")
+const userRoutes = require("./routes/userRoutes")
 
 // connection to the database
 mongoose.connect(process.env.DATABASE, {
@@ -49,6 +50,7 @@ routes são usadas para as páginas do programa, nesse caso, quando se usa a rou
 
 */
 app.use('/api', authRoutes)
+app.use('/api', userRoutes)
 
 
 //error middleware
