@@ -4,7 +4,8 @@
 - Primeiro foi desenvolvido o backend
     - Para começar o servidor é só ```npm start``` no diretório do backend
 - Para iniciar o front
-    ```npm start```
+    - ```npx create-react-app <nomeDiretorio> -y```
+    - ```npm start```
 ## Prcesso de auth
 - Testar no postman a api e as routes
 - Testar rodar primeiro o sign in para depois rodar o user profile
