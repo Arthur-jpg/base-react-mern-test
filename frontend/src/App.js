@@ -10,12 +10,12 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
           <CssBaseline />
-          <BrowserRouter>
-              <Routes>
-                  <Route path='/' element={<Home />} />
-                  <Route path='*' element={<NotFound />} />
-              </Routes>
-          </BrowserRouter>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
       </ThemeProvider>
     </>
   )
