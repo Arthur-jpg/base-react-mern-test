@@ -4,20 +4,22 @@ Models é para criar os schemas do banco de dados
 Um schema é basciamente uma regra no banco de dados, no primeiro caso vamos fazer uma regra para o usuário, então ele terá o primeiro nome obrigatório e assim vai.
 */
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema
 
-const jobSchema = new mongoose.Schema({
-    title: {
+const jobTypeSchema = new mongoose.Schema({
+    jobTypeName: {
         type: String,
         trim: true,
-        require: [true, 'O título é obrigatório'],
+        require: [true, 'O Nome é obrigatório'],
         maxlenght: 70,
     },
-    description: {
-        type: String,
-        trim: true,
-        require: [true, 'A descrição é obrigatória'],
-    },
+    user: {
+        type: ObjectId,
+        ref: "User",
+        required: true
+    }
+
 }, {timestamps:true}) // timestamp é basicamente guardar a hora e o dia que o usuário foi criado
 
 
-module.exports = mongoose.model("Job", jobSchema);
+module.exports = mongoose.model("JobType", jobTypeSchema);
